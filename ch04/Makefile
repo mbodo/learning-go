@@ -1,0 +1,18 @@
+.DEFAULT_GOAL := build
+
+.PHONY: fmt lint vet build
+
+fmt:
+	go fmt ./...
+
+lint: fmt
+	golint ./...
+
+vet: fmt
+	go vet ./...
+
+#shadow: fmt
+	#shadow ./...
+
+build: vet
+	go build chapter.go
