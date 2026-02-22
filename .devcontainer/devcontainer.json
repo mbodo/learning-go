@@ -1,39 +1,18 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/go .
 {
-	"name": "Go",
-	"build": {
-		"dockerfile": "Dockerfile",
-		"args": {
-			"VARIANT": "1.16",
-			"INSTALL_ZSH": "false",
-			"INSTALL_NODE": "false",
-			"NODE_VERSION": "lts/*",
-			"USERNAME": "user",
-			"USER_UID": "500"
-		}
-	},
-	"runArgs": [ "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined" ],
+	"name": "learning-go",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/go:2-1.25-trixie",
 
-	// Set *default* container specific settings.json values on container create.
-	"settings": {
-		"terminal.integrated.shell.linux": "/bin/bash",
-		//ms-vscode.go
-		"go.toolsManagement.checkForUpdates": "local",
-		"go.useLanguageServer": true,
-		"go.gopath": "/go",
-		"go.goroot": "/usr/local/go",
-		"go.toolsGopath": "/go/bin",
-		"go.formatTool": "gofmt",
-        "go.lintTool": "golint",
-		"go.autocompleteUnimportedPackages": true,
-        "gopls": {
-          "build.experimentalWorkspaceModule": true
-        }
-	},
-
-	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": [
-		"golang.Go"
-	],
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+	"features": {
+                "ghcr.io/devcontainers/features/common-utils:2": {
+                        "installZsh": "false",
+                        "upgradePackages": "true"
+                }
+        },
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
@@ -41,10 +20,15 @@
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "go version",
 
-    // Overrides the user all operations run as inside the container.
-    "containerUser": "user",
+	// Configure tool-specific properties.
+	// "customizations": {},
 
-	// Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
-    "remoteUser": "user"
+        // Overrides the user all operations run as inside the container.
+	"containerUser": "root",
 
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	"remoteUser": "root",
+
+        "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+        "workspaceFolder": "/workspace"
 }
