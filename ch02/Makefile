@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := build
 
-.PHONY: fmt lint vet build
+.PHONY: fmt lint vet build run
 
 fmt:
 	go fmt ./...
@@ -13,3 +13,6 @@ vet: fmt
 
 build: vet
 	go build chapter.go
+
+run: vet
+	go run chapter.go
