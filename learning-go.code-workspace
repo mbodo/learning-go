@@ -1,34 +1,7 @@
 {
-    "folders": [
+	"folders": [
 		{
-			"path": "ch01"
-		},
-		{
-			"path": "ch02"
-		},
-		{
-			"path": "ch03"
-		},
-		{
-			"path": "template"
-		},
-		{
-			"path": "ch04"
-		},
-		{
-			"path": "ch05"
-		},
-		{
-			"path": "ch06"
-		},
-		{
-			"path": "ch07"
-		},
-		{
-			"path": "ch08"
-		},
-		{
-			"path": "ch09"
+			"path": "."
 		}
 	]
 }
